@@ -1,3 +1,10 @@
-<Page>
-
+<Page loaded="loaded">
+    <GridLayout rows="auto, *" columns="2*, *">
+        <ListView items="{{ groceryList }}" id="groceryList" row="1" colSpan="2">
+            <ListView.itemTemplate>
+                <Label text="{{ title }}" horizontalAlignment="left" verticalAlignment="center"/>
+            </ListView.itemTemplate>
+        </ListView>
+        <ActivityIndicator busy="{{ isLoading }}" rowSpan="2" colSpan="2" />
+    </GridLayout>
 </Page>
