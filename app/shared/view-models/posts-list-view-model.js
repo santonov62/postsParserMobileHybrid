@@ -2,7 +2,7 @@ var config = require("../../shared/config");
 var fetchModule = require("fetch");
 var ObservableArray = require("data/observable-array").ObservableArray;
 
-function GroceryListViewModel(items) {
+function PostsListViewModel(items) {
     var viewModel = new ObservableArray(items);
 
     viewModel.load = function () {
@@ -12,7 +12,6 @@ function GroceryListViewModel(items) {
                 return response.json();
             }).then(function (data) {
                 data.forEach(function (post) {
-            console.log("2222222222222");
                     viewModel.push({
                         title: post.title
                         , description: post.description
@@ -38,4 +37,4 @@ function handleErrors(response) {
     return response;
 }
 
-module.exports = GroceryListViewModel;
+module.exports = PostsListViewModel;

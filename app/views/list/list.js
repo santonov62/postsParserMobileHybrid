@@ -2,22 +2,22 @@ var dialogsModule = require("ui/dialogs");
 var observableModule = require("data/observable")
 var ObservableArray = require("data/observable-array").ObservableArray;
 var page;
-var GroceryListViewModel = require("../../shared/view-models/grocery-list-view-model");
+var PostsListViewModel = require("../../shared/view-models/posts-list-view-model");
+var frames = require("ui/frame");
 
-var groceryList = new GroceryListViewModel([]);
+var postsList = new PostsListViewModel([]);
 var pageData = new observableModule.fromObject({
-    groceryList: groceryList
-    , grocery: ""
+    postsList: postsList
 });
 
 exports.loaded = function (args) {
     page = args.object;
-//    var listView = page.getViewById("groceryList");
+    var listView = page.getViewById("postsList");
     page.bindingContext = pageData;
 
-    groceryList.empty();
+    postsList.empty();
     pageData.set("isLoading", true);
-    groceryList.load().then(function () {
+    postsList.load().then(function () {
         pageData.set("isLoading", false);
         listView.animate({
             opacity: 1
@@ -25,3 +25,7 @@ exports.loaded = function (args) {
         });
     });
 };
+
+exports.onItemTap = function(e) {
+    frames.topmost().navigate("views/detail/detail");
+}

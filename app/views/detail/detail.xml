@@ -1,0 +1,8 @@
+<Page>
+<!--
+    <Page.actionBar>
+        <ActionBar title="Detail"></ActionBar>
+    </Page.actionBar>
+-->
+    <Label text="Detail" horizontalAlignment="center" verticalAlignment="top"/>
+</Page>

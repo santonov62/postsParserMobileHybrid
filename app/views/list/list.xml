@@ -1,8 +1,11 @@
 <Page loaded="loaded">
+    <Page.actionBar>
+        <ActionBar title="Горячее"></ActionBar>
+    </Page.actionBar>
     <GridLayout rows="auto, *" columns="2*, *">
-        <ListView items="{{ groceryList }}" id="groceryList" row="1" colSpan="2">
+        <ListView items="{{ postsList }}" id="postsList" row="1" colSpan="2">
             <ListView.itemTemplate>
-                <Label text="{{ title }}" horizontalAlignment="left" verticalAlignment="center"/>
+                <Label text="{{ title }}" horizontalAlignment="left" verticalAlignment="center" tap="onItemTap"/>
             </ListView.itemTemplate>
         </ListView>
         <ActivityIndicator busy="{{ isLoading }}" rowSpan="2" colSpan="2" />
